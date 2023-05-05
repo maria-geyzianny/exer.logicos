@@ -1,0 +1,88 @@
+Uma empresa de telecomunicações decidiu descobrir quela de seus clientes por pelo menos 10 minutos ao
+ao telefone no total e oferecer-lhes um novo contato.
+
+voce recebe duas mesas, telefones e chamadas, com as seguintes 
+estruturas, tabelas abaixo:
+  
+  create table phones (
+      name varchar(20) not null unique,
+      phone_number integer not null unique
+  );
+
+  create table calls (
+      id integer not null,
+      caller integer not null,
+      callee integer not null,
+      duration integer not null,
+      unique(id)
+  );
+
+insert into phones values ('Jack', 1234);
+insert into phones values ('Lena', 3333);
+insert into phones values ('Mark', 9999);
+insert into phones values ('Anna', 7582);
+insert into calls values (25, 1234, 7582, 8);
+insert into calls values (7, 9999, 7582, 1);
+insert into calls values (18, 9999, 3333, 4);
+insert into calls values (2, 7582, 3333, 3);
+insert into calls values (3, 3333, 1234, 1);
+insert into calls values (21, 3333, 1234, 1);
+
+cada linha dos telefones da mesa contém informações sobre um 
+cliente: nome(name) e número de telefone(phone_number). Cada cliente tem aoenas 
+um numero de telefone. Cada linha da tabela chamadas contém informações
+sobre uma única chamada: id(id), número de telefone chamador(caller)
+, numero de telefone chamado(callee) e duração da chamada em minutos(duration)
+
+1. Dados:
+   tabela phones: 
+   | name | phone_number |
+   | Jack | 1234 | 
+   | Lena | 3333 | 
+   | Mark | 9999 | 
+   | Anna | 7582 |  
+
+   tabela calls:
+   | id | caller | callee | duration | 
+   | 25 | 1234 | 7582 | 8 |
+   | 7 | 9999 | 7582 | 1 |
+   | 18 | 9999 | 3333 | 4 |
+   | 2 | 7582 | 3333 | 3 |
+   | 3 | 3333 | 1234 | 1 |
+   | 21 | 3333 | 1234 | 1 |
+
+   your query should return: 
+   | name |
+   | Anna |
+   | Jack |
+
+    Jack falou três vezes e a duração total de suas ligações é 8 + 1 + 1 = 10.
+    Lena falou quatro vezes e a duração total de suas ligações é 4 + 3 + 1 + 1 = 9.
+    Mark falou duas vezes e a duração total de suas ligações é 1 + 4 = 5.
+    Anna falou três vezes e a duração total de suas ligações é 8 + 1 + 3 = 12.
+    Anna e Jack conversaram por pelo menos 10 minutos.
+   
+2. Dados:
+    tabela phones: 
+    | name | phone_number | 
+    | John | 6356 | 
+    | Addison | 4315 | 
+    | Kate | 8003 | 
+    | Ginny | 9831 | 
+
+    tabela calls: 
+    | id | caller | callee | duration | 
+    | 65 | 8003 | 9831 | 7 | 
+    | 100 | 9831 | 8003 | 3 | 
+    | 145 | 4315 | 9831 | 18 |
+
+    your query should return: 
+    | name | 
+    | Addison | 
+    | Ginny | 
+    | Kate |  
+
+Desta forma, para encontrar todos os clientes que conversaram 
+pelo menos 10 minutos no total, qual consulta em SQL
+poderia retornar o nome do cliente e as linhas classificadas em 
+ordem alfabetica?
