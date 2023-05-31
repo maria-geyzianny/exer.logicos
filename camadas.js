@@ -1,24 +1,40 @@
-function solucao(number){
-    if (number >= 0 & number <= 20){
-        print("TROPOSFERA")
 
-    } else if (number > 20 & number <= 50 ){
-        print("ESTRATOSFERA")
 
-    } else if (number > 50 & number <= 80){
-        print("MESOSFERA")
+const readline = require('readline');
 
-    } else if (number > 80 & number <= 450) {
-        print ("TERMOSFERA")
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-    } else if (number > 450 & number <= 900){
-        print("EXOSFERA")
-    }
+
+function atmosfera(altitude){
+    if (altitude >= 0 && altitude <= 20){
+        return "TROPOSFERA";
+
+    } else if (altitude > 20 && altitude <= 50 ){
+        return "ESTRATOSFERA";
+
+    } else if (altitude > 50 && altitude <= 80){
+        return "MESOSFERA";
+
+    } else if (altitude > 80 && altitude <= 450) {
+        return "TERMOSFERA";
+
+    } else if (altitude > 450 && altitude <= 900){
+        return "EXOSFERA";
+    } else {
+        throw new Error("Altitude inválida.");
+      }
 }
 
-solucao(number)
 
-let number  = require('fs').readFileSync('/dev/')
+rl.question('Qual a altitude', (altitude) => {
+    atmosfera(altitude)
+    rl.close();
+});
+
+
         
 
 
