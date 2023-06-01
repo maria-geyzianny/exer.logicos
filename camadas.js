@@ -1,14 +1,4 @@
-
-
-const readline = require('readline');
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-
-function atmosfera(altitude){
+function solucao(altitude){
     if (altitude >= 0 && altitude <= 20){
         return "TROPOSFERA";
 
@@ -24,15 +14,14 @@ function atmosfera(altitude){
     } else if (altitude > 450 && altitude <= 900){
         return "EXOSFERA";
     } else {
-        throw new Error("Altitude inválida.");
+       return "Altitude inválida.";
       }
 }
 
+let altitude = 85
+let saida = solucao(altitude)
+console.log(saida)
 
-rl.question('Qual a altitude', (altitude) => {
-    atmosfera(altitude)
-    rl.close();
-});
 
 
         
