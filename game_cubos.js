@@ -13,7 +13,6 @@ function solucao(itensColetados, itemNecessario1, itemNecessario2, itemNecessari
             break
         }
     }
-    console.log(acumulador)
     if (acumulador >= 3) {
         return "PODE ENFRENTAR";
     } else {
